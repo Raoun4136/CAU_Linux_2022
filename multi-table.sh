@@ -1,14 +1,10 @@
 #!/bin/sh
 for i in $(seq 1 $1)
 do
-	for j in $(seq 1 10)
+	for j in $(seq 1 `expr $1 + 1`)
 	do
-		if [ ${i} = $1 ] && [ ${j} = $2 ]
-	       	then
-			exit 0
-		else
-			echo "${i}*${j}=`expr $i \* $j`"
-		fi
+		printf  "${i}*${j}=`expr $i \* $j` \t"
 	done
+	printf "\n"
 done
 exit 0
